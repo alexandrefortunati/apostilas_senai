@@ -239,6 +239,33 @@ class CourseData {
                     ['id' => 'safe-updates-workbench', 'title' => '6. Safe Updates no MySQL Workbench'],
                     ['id' => 'atividade-pratica-update', 'title' => '7. Atividade Prática']
                 ]
+            ],
+            8 => [
+                'id' => 8,
+                'title' => 'Módulo 8: Excluindo Dados com o Comando DELETE (DML)',
+                'senai_chapter' => 'Capítulo 8: Exclusão Controlada de Dados (DELETE), Fechamento do Ciclo CRUD e Integridade Referencial',
+                'plano_curso_item' => 'Item 13: Linguagem de Manipulação de Dados (DML) • Comando DELETE (Exclusão Simples de Registros, A Regra de Ouro do WHERE, Integridade Referencial e Bloqueio da Chave Estrangeira - Erro 1451, Exclusão Hierárquica De Baixo para Cima, Protocolo de Segurança com SELECT Prévio e Diferenças entre DELETE, TRUNCATE e DROP)',
+                'tech_capacity' => '2. Utilizar o MySQL Workbench / 7. Manipular e excluir registros com precisão através de comandos DML (DELETE) / 10. Executar comandos no servidor MySQL / 11. Validar e preservar a integridade referencial',
+                'hours_total' => '18h 45min',
+                'summary' => 'Guia prático e didático sobre exclusão segura de registros em SQL com o comando DELETE: feche o ciclo fundamental do CRUD, domine a regra de ouro da cláusula WHERE para evitar desastres irreversíveis, compreenda o bloqueio de Chave Estrangeira (Erro 1451), aprenda a estratégia de exclusão hierárquica de baixo para cima, aplique o protocolo preventivo com SELECT prévio e compare as diferenças operacionais entre DELETE, TRUNCATE TABLE e DROP TABLE no banco de dados da fábrica AutoMetal Brasil S.A.',
+                'lessons' => [
+                    ['number' => 1, 'duration' => '45 min', 'title' => 'O Papel do DELETE e o Fechamento do Ciclo CRUD', 'desc' => 'Como o comando DELETE atua na remoção física de dados e completa as 4 operações fundamentais (Create, Read, Update, Delete).'],
+                    ['number' => 2, 'duration' => '45 min', 'title' => 'A Regra de Ouro do WHERE e o Perigo Oculto', 'desc' => 'Por que nunca executar um DELETE sem a cláusula WHERE e o risco catastrófico de perda total da base de dados.'],
+                    ['number' => 3, 'duration' => '45 min', 'title' => 'Exclusão Simples em Tabelas Independentes', 'desc' => 'Remoção pontual e imediata de categorias ou registros sem vínculos relacionais ativos.'],
+                    ['number' => 4, 'duration' => '45 min', 'title' => 'O Bloqueio da Chave Estrangeira (Erro 1451) e a Exclusão Hierárquica', 'desc' => 'Como o MySQL protege notas fiscais com integridade referencial e o método de exclusão ordenada De Baixo para Cima (filho -> pai).'],
+                    ['number' => 5, 'duration' => '45 min', 'title' => 'Protocolo Preventivo (SELECT Prévio) e DELETE vs TRUNCATE vs DROP', 'desc' => 'Técnica de conferência visual antes do DELETE e análise detalhada das diferenças de impacto e performance entre os 3 comandos de limpeza.']
+                ],
+                'project_name' => 'Exclusão Segura e Gestão de Integridade Referencial da AutoMetal Brasil',
+                'project_type' => 'Manipulação DML (DELETE) / MySQL Workbench',
+                'topics' => [
+                    ['id' => 'intro-delete-crud-regra-ouro', 'title' => '1. O Ciclo CRUD & Regra de Ouro'],
+                    ['id' => 'delete-simples-independentes', 'title' => '2. Exclusão Simples (Sem Vínculos)'],
+                    ['id' => 'bloqueio-fk-erro-1451', 'title' => '3. Bloqueio de FK (Erro 1451)'],
+                    ['id' => 'exclusao-baixo-para-cima', 'title' => '4. Exclusão De Baixo para Cima'],
+                    ['id' => 'boas-praticas-select-previo', 'title' => '5. Protocolo do SELECT Prévio'],
+                    ['id' => 'comparativo-delete-truncate-drop', 'title' => '6. DELETE vs TRUNCATE vs DROP'],
+                    ['id' => 'atividade-pratica-delete', 'title' => '7. Atividade Prática de Fixação']
+                ]
             ]
         ];
     }
