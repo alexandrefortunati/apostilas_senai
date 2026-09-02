@@ -1,0 +1,220 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 670" width="100%" height="100%">
+  <defs>
+    <!-- Grade quadriculada brModelo -->
+    <pattern id="gridDerCompleto" width="18" height="18" patternUnits="userSpaceOnUse">
+      <path d="M 18 0 L 0 0 0 18" fill="none" stroke="#e3ecf5" stroke-width="0.8"/>
+    </pattern>
+    
+    <!-- Sombra padrão sólida dos blocos do brModelo -->
+    <filter id="shadowDer" x="-5%" y="-5%" width="115%" height="120%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="3" dy="3" stdDeviation="0" flood-color="#000000" flood-opacity="0.35" />
+    </filter>
+  </defs>
+
+  <!-- Janela brModelo -->
+  <rect x="0" y="0" width="1200" height="670" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+
+  <!-- Barra de Abas brModelo -->
+  <rect x="0" y="0" width="1200" height="34" rx="8" fill="#eef2f6" />
+  <rect x="0" y="26" width="1200" height="8" fill="#eef2f6" />
+  <line x1="0" y1="34" x2="1200" y2="34" stroke="#cbd5e1" stroke-width="1"/>
+
+  <!-- Aba Ativa -->
+  <path d="M 12 34 L 12 8 Q 12 4 16 4 L 155 4 Q 159 4 159 8 L 159 34 Z" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <line x1="13" y1="34" x2="158" y2="34" stroke="#ffffff" stroke-width="1.5"/>
+  <rect x="22" y="13" width="14" height="12" rx="1.5" fill="#f59e0b" stroke="#d97706" stroke-width="1"/>
+  <text x="42" y="23" font-family="'Segoe UI', Arial, sans-serif" font-size="12" font-weight="600" fill="#334155">*Conceitual_AutoMetal</text>
+
+  <rect x="940" y="8" width="245" height="20" rx="4" fill="#e2e8f0" />
+  <text x="1062" y="22" font-family="'Segoe UI', Arial, sans-serif" font-size="11" font-weight="700" fill="#475569" text-anchor="middle">brModelo 3.2.0 • DER Completo</text>
+
+  <!-- Área de Trabalho com Grade -->
+  <rect x="1" y="35" width="1198" height="596" rx="0" fill="#fcfdfe"/>
+  <rect x="1" y="35" width="1198" height="596" rx="0" fill="url(#gridDerCompleto)"/>
+
+  <!-- ========================================================
+       RELACIONAMENTOS (LINHAS & LOSANGOS)
+       ======================================================== -->
+  
+  <!-- 1. RELACIONAMENTO: PECA (1,1) <-> (1,N) CATEGORIA (contém) -->
+  <path d="M 100 86 L 60 86 L 60 225" fill="none" stroke="#000000" stroke-width="1.4"/>
+  <path d="M 60 275 L 60 456 L 100 456" fill="none" stroke="#000000" stroke-width="1.4"/>
+  <!-- Losango 'contém' (Peca - Categoria) -->
+  <polygon points="60,225 120,250 60,275 0,250" fill="#ffffff" stroke="#000000" stroke-width="1.6" filter="url(#shadowDer)"/>
+  <text x="60" y="254" font-family="Arial, sans-serif" font-size="12" font-weight="700" fill="#000000" text-anchor="middle">contém</text>
+  <!-- Cardinalidades -->
+  <text x="68" y="78" font-family="Arial, sans-serif" font-size="11.5" font-weight="700" fill="#000000">(1,1)</text>
+  <text x="68" y="448" font-family="Arial, sans-serif" font-size="11.5" font-weight="700" fill="#000000">(1,n)</text>
+
+  <!-- 2. RELACIONAMENTO: CLIENTE (1,N) <-> (1,1) PEDIDO (faz) -->
+  <path d="M 630 86 L 700 86" fill="none" stroke="#000000" stroke-width="1.4"/>
+  <path d="M 780 86 L 850 86" fill="none" stroke="#000000" stroke-width="1.4"/>
+  <!-- Losango 'faz' (Cliente - Pedido) -->
+  <polygon points="740,66 780,86 740,106 700,86" fill="#ffffff" stroke="#000000" stroke-width="1.6" filter="url(#shadowDer)"/>
+  <text x="740" y="90" font-family="Arial, sans-serif" font-size="12" font-weight="700" fill="#000000" text-anchor="middle">faz</text>
+  <!-- Cardinalidades -->
+  <text x="642" y="78" font-family="Arial, sans-serif" font-size="11.5" font-weight="700" fill="#000000">(1,n)</text>
+  <text x="826" y="78" font-family="Arial, sans-serif" font-size="11.5" font-weight="700" fill="#000000">(1,1)</text>
+
+  <!-- 3. RELACIONAMENTO: PEDIDO (1,N) <-> (1,1) ITENS_PEDIDO (contém) -->
+  <path d="M 990 86 L 1090 86 L 1090 225" fill="none" stroke="#000000" stroke-width="1.4"/>
+  <path d="M 1090 275 L 1090 456 L 1020 456" fill="none" stroke="#000000" stroke-width="1.4"/>
+  <!-- Losango 'contém' (Pedido - Itens_Pedido) -->
+  <polygon points="1090,225 1155,250 1090,275 1025,250" fill="#ffffff" stroke="#000000" stroke-width="1.6" filter="url(#shadowDer)"/>
+  <text x="1090" y="254" font-family="Arial, sans-serif" font-size="12" font-weight="700" fill="#000000" text-anchor="middle">contém</text>
+  <!-- Cardinalidades -->
+  <text x="1005" y="78" font-family="Arial, sans-serif" font-size="11.5" font-weight="700" fill="#000000">(1,n)</text>
+  <text x="1034" y="448" font-family="Arial, sans-serif" font-size="11.5" font-weight="700" fill="#000000">(1,1)</text>
+
+  <!-- 4. RELACIONAMENTO: PECA (1,N) <-> (1,1) ITENS_PEDIDO (contém) -->
+  <path d="M 240 86 L 360 86 L 360 456 L 530 456" fill="none" stroke="#000000" stroke-width="1.4"/>
+  <path d="M 650 456 L 880 456" fill="none" stroke="#000000" stroke-width="1.4"/>
+  <!-- Losango 'contém' (Peca - Itens_Pedido) -->
+  <polygon points="590,431 650,456 590,481 530,456" fill="#ffffff" stroke="#000000" stroke-width="1.6" filter="url(#shadowDer)"/>
+  <text x="590" y="460" font-family="Arial, sans-serif" font-size="12" font-weight="700" fill="#000000" text-anchor="middle">contém</text>
+  <!-- Cardinalidades -->
+  <text x="252" y="78" font-family="Arial, sans-serif" font-size="11.5" font-weight="700" fill="#000000">(1,n)</text>
+  <text x="852" y="448" font-family="Arial, sans-serif" font-size="11.5" font-weight="700" fill="#000000">(1,1)</text>
+
+
+  <!-- ========================================================
+       ENTIDADE 1: peca (Topo Esquerdo)
+       ======================================================== -->
+  <rect x="100" y="60" width="140" height="52" fill="#ffffff" stroke="#000000" stroke-width="1.8" filter="url(#shadowDer)"/>
+  <text x="170" y="91" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#000000" text-anchor="middle">peca</text>
+
+  <!-- Cascata de Atributos: peca -->
+  <path d="M 112 112 L 112 300 L 127 300" fill="none" stroke="#000000" stroke-width="1.4"/>
+  <circle cx="132" cy="300" r="5" fill="#000000" stroke="#000000" stroke-width="1.4"/>
+  <text x="143" y="304" font-family="Arial, sans-serif" font-size="11.5" font-weight="700" fill="#000000">id_peca (PK)</text>
+
+  <path d="M 127 112 L 127 270 L 142 270" fill="none" stroke="#000000" stroke-width="1.4"/>
+  <circle cx="147" cy="270" r="5" fill="#000000" stroke="#000000" stroke-width="1.4"/>
+  <text x="158" y="274" font-family="Arial, sans-serif" font-size="11.5" font-weight="700" fill="#000000">Atributo_1id_categoria (FK)</text>
+
+  <path d="M 142 112 L 142 240 L 157 240" fill="none" stroke="#000000" stroke-width="1.4"/>
+  <circle cx="162" cy="240" r="5" fill="#ffffff" stroke="#000000" stroke-width="1.5"/>
+  <text x="173" y="244" font-family="Arial, sans-serif" font-size="11.5" font-weight="500" fill="#000000">quantidade_estoque</text>
+
+  <path d="M 157 112 L 157 210 L 172 210" fill="none" stroke="#000000" stroke-width="1.4"/>
+  <circle cx="177" cy="210" r="5" fill="#ffffff" stroke="#000000" stroke-width="1.5"/>
+  <text x="188" y="214" font-family="Arial, sans-serif" font-size="11.5" font-weight="500" fill="#000000">nome_peca</text>
+
+  <path d="M 172 112 L 172 180 L 187 180" fill="none" stroke="#000000" stroke-width="1.4"/>
+  <circle cx="192" cy="180" r="5" fill="#ffffff" stroke="#000000" stroke-width="1.5"/>
+  <text x="203" y="184" font-family="Arial, sans-serif" font-size="11.5" font-weight="500" fill="#000000">preco_unitario</text>
+
+  <path d="M 187 112 L 187 150 L 202 150" fill="none" stroke="#000000" stroke-width="1.4"/>
+  <circle cx="207" cy="150" r="5" fill="#ffffff" stroke="#000000" stroke-width="1.5"/>
+  <text x="218" y="154" font-family="Arial, sans-serif" font-size="11.5" font-weight="500" fill="#000000">descricao_tecnica</text>
+
+
+  <!-- ========================================================
+       ENTIDADE 2: categoria (Abaixo de peca)
+       ======================================================== -->
+  <rect x="100" y="430" width="135" height="52" fill="#ffffff" stroke="#000000" stroke-width="1.8" filter="url(#shadowDer)"/>
+  <text x="167" y="461" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#000000" text-anchor="middle">categoria</text>
+
+  <!-- Cascata de Atributos: categoria -->
+  <path d="M 118 482 L 118 580 L 133 580" fill="none" stroke="#000000" stroke-width="1.4"/>
+  <circle cx="138" cy="580" r="5" fill="#000000" stroke="#000000" stroke-width="1.4"/>
+  <text x="149" y="584" font-family="Arial, sans-serif" font-size="11.5" font-weight="700" fill="#000000">id_categoria (PK)</text>
+
+  <path d="M 136 482 L 136 550 L 151 550" fill="none" stroke="#000000" stroke-width="1.4"/>
+  <circle cx="156" cy="550" r="5" fill="#ffffff" stroke="#000000" stroke-width="1.5"/>
+  <text x="167" y="554" font-family="Arial, sans-serif" font-size="11.5" font-weight="500" fill="#000000">nome</text>
+
+  <path d="M 154 482 L 154 520 L 169 520" fill="none" stroke="#000000" stroke-width="1.4"/>
+  <circle cx="174" cy="520" r="5" fill="#ffffff" stroke="#000000" stroke-width="1.5"/>
+  <text x="185" y="524" font-family="Arial, sans-serif" font-size="11.5" font-weight="500" fill="#000000">descricao</text>
+
+
+  <!-- ========================================================
+       ENTIDADE 3: cliente (Topo Centro)
+       ======================================================== -->
+  <rect x="490" y="60" width="140" height="52" fill="#ffffff" stroke="#000000" stroke-width="1.8" filter="url(#shadowDer)"/>
+  <text x="560" y="91" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#000000" text-anchor="middle">cliente</text>
+
+  <!-- Cascata de Atributos: cliente -->
+  <path d="M 505 112 L 505 300 L 520 300" fill="none" stroke="#000000" stroke-width="1.4"/>
+  <circle cx="525" cy="300" r="5" fill="#000000" stroke="#000000" stroke-width="1.4"/>
+  <text x="536" y="304" font-family="Arial, sans-serif" font-size="11.5" font-weight="700" fill="#000000">id_cliente (PK)</text>
+
+  <path d="M 520 112 L 520 270 L 535 270" fill="none" stroke="#000000" stroke-width="1.4"/>
+  <circle cx="540" cy="270" r="5" fill="#ffffff" stroke="#000000" stroke-width="1.5"/>
+  <text x="551" y="274" font-family="Arial, sans-serif" font-size="11.5" font-weight="500" fill="#000000">nome_completo</text>
+
+  <path d="M 535 112 L 535 240 L 550 240" fill="none" stroke="#000000" stroke-width="1.4"/>
+  <circle cx="555" cy="240" r="5" fill="#ffffff" stroke="#000000" stroke-width="1.5"/>
+  <text x="566" y="244" font-family="Arial, sans-serif" font-size="11.5" font-weight="500" fill="#000000">cpf_cnpj</text>
+
+  <path d="M 550 112 L 550 210 L 565 210" fill="none" stroke="#000000" stroke-width="1.4"/>
+  <circle cx="570" cy="210" r="5" fill="#ffffff" stroke="#000000" stroke-width="1.5"/>
+  <text x="581" y="214" font-family="Arial, sans-serif" font-size="11.5" font-weight="500" fill="#000000">telefone</text>
+
+  <path d="M 565 112 L 565 180 L 580 180" fill="none" stroke="#000000" stroke-width="1.4"/>
+  <circle cx="585" cy="180" r="5" fill="#ffffff" stroke="#000000" stroke-width="1.5"/>
+  <text x="596" y="184" font-family="Arial, sans-serif" font-size="11.5" font-weight="500" fill="#000000">email</text>
+
+  <path d="M 580 112 L 580 150 L 595 150" fill="none" stroke="#000000" stroke-width="1.4"/>
+  <circle cx="600" cy="150" r="5" fill="#ffffff" stroke="#000000" stroke-width="1.5"/>
+  <text x="611" y="154" font-family="Arial, sans-serif" font-size="11.5" font-weight="500" fill="#000000">endereco</text>
+
+
+  <!-- ========================================================
+       ENTIDADE 4: pedido (Topo Direito)
+       ======================================================== -->
+  <rect x="850" y="60" width="140" height="52" fill="#ffffff" stroke="#000000" stroke-width="1.8" filter="url(#shadowDer)"/>
+  <text x="920" y="91" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#000000" text-anchor="middle">pedido</text>
+
+  <!-- Cascata de Atributos: pedido -->
+  <path d="M 865 112 L 865 270 L 880 270" fill="none" stroke="#000000" stroke-width="1.4"/>
+  <circle cx="885" cy="270" r="5" fill="#000000" stroke="#000000" stroke-width="1.4"/>
+  <text x="896" y="274" font-family="Arial, sans-serif" font-size="11.5" font-weight="700" fill="#000000">id_pedido (PK)</text>
+
+  <path d="M 880 112 L 880 240 L 895 240" fill="none" stroke="#000000" stroke-width="1.4"/>
+  <circle cx="900" cy="240" r="5" fill="#000000" stroke="#000000" stroke-width="1.4"/>
+  <text x="911" y="244" font-family="Arial, sans-serif" font-size="11.5" font-weight="700" fill="#000000">id_cliente (FK)</text>
+
+  <path d="M 895 112 L 895 210 L 910 210" fill="none" stroke="#000000" stroke-width="1.4"/>
+  <circle cx="915" cy="210" r="5" fill="#ffffff" stroke="#000000" stroke-width="1.5"/>
+  <text x="926" y="214" font-family="Arial, sans-serif" font-size="11.5" font-weight="500" fill="#000000">data_emissao</text>
+
+  <path d="M 910 112 L 910 180 L 925 180" fill="none" stroke="#000000" stroke-width="1.4"/>
+  <circle cx="930" cy="180" r="5" fill="#ffffff" stroke="#000000" stroke-width="1.5"/>
+  <text x="941" y="184" font-family="Arial, sans-serif" font-size="11.5" font-weight="500" fill="#000000">status</text>
+
+  <path d="M 925 112 L 925 150 L 940 150" fill="none" stroke="#000000" stroke-width="1.4"/>
+  <circle cx="945" cy="150" r="5" fill="#ffffff" stroke="#000000" stroke-width="1.5"/>
+  <text x="956" y="154" font-family="Arial, sans-serif" font-size="11.5" font-weight="500" fill="#000000">valor_tota</text>
+
+
+  <!-- ========================================================
+       ENTIDADE 5: itens_pedido (Abaixo à Direita - Intermediária N:M)
+       ======================================================== -->
+  <rect x="880" y="430" width="140" height="52" fill="#ffffff" stroke="#000000" stroke-width="1.8" filter="url(#shadowDer)"/>
+  <text x="950" y="461" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#000000" text-anchor="middle">itens_pedido</text>
+
+  <!-- Cascata de Atributos: itens_pedido -->
+  <path d="M 898 482 L 898 610 L 913 610" fill="none" stroke="#000000" stroke-width="1.4"/>
+  <circle cx="918" cy="610" r="5" fill="#000000" stroke="#000000" stroke-width="1.4"/>
+  <text x="929" y="614" font-family="Arial, sans-serif" font-size="11.5" font-weight="700" fill="#000000">id_pedido (FK)</text>
+
+  <path d="M 916 482 L 916 580 L 931 580" fill="none" stroke="#000000" stroke-width="1.4"/>
+  <circle cx="936" cy="580" r="5" fill="#000000" stroke="#000000" stroke-width="1.4"/>
+  <text x="947" y="584" font-family="Arial, sans-serif" font-size="11.5" font-weight="700" fill="#000000">id_peca (FK)</text>
+
+  <path d="M 934 482 L 934 550 L 949 550" fill="none" stroke="#000000" stroke-width="1.4"/>
+  <circle cx="954" cy="550" r="5" fill="#ffffff" stroke="#000000" stroke-width="1.5"/>
+  <text x="965" y="554" font-family="Arial, sans-serif" font-size="11.5" font-weight="500" fill="#000000">quantidade_comprada</text>
+
+  <path d="M 952 482 L 952 520 L 967 520" fill="none" stroke="#000000" stroke-width="1.4"/>
+  <circle cx="972" cy="520" r="5" fill="#ffffff" stroke="#000000" stroke-width="1.5"/>
+  <text x="983" y="524" font-family="Arial, sans-serif" font-size="11.5" font-weight="500" fill="#000000">preco_venda</text>
+
+
+  <!-- Rodapé informativo -->
+  <rect x="1" y="631" width="1198" height="38" rx="0 0 7 7" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="20" y="655" font-family="'Segoe UI', Arial, sans-serif" font-size="12" font-weight="600" fill="#475569">📌 Diagrama Entidade-Relacionamento Completo (DER) com Entidades, Atributos em Cascata, Losangos e Cardinalidades</text>
+  <text x="1180" y="655" font-family="'Segoe UI', Arial, sans-serif" font-size="11.5" font-weight="500" fill="#64748b" text-anchor="end">AutoMetal Brasil S.A. • brModelo</text>
+</svg>

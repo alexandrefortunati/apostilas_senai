@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 280" width="100%" height="100%">
+  <defs>
+    <!-- Pattern de Grade quadriculada do brModelo -->
+    <pattern id="brmodeloGrid" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#e0e7f1" stroke-width="0.8"/>
+    </pattern>
+    
+    <!-- Sombra padrão dos blocos do brModelo -->
+    <filter id="brShadow" x="-5%" y="-5%" width="115%" height="120%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="3" dy="3" stdDeviation="0" flood-color="#000000" flood-opacity="0.35" />
+    </filter>
+  </defs>
+
+  <!-- Janela / Fundo do brModelo -->
+  <rect x="0" y="0" width="920" height="280" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+
+  <!-- Barra de Abas do brModelo -->
+  <rect x="0" y="0" width="920" height="34" rx="8" fill="#eef2f6" />
+  <rect x="0" y="26" width="920" height="8" fill="#eef2f6" />
+  <line x1="0" y1="34" x2="920" y2="34" stroke="#cbd5e1" stroke-width="1"/>
+
+  <!-- Aba Ativa (*Conceitual_1) -->
+  <path d="M 12 34 L 12 8 Q 12 4 16 4 L 140 4 Q 144 4 144 8 L 144 34 Z" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <line x1="13" y1="34" x2="143" y2="34" stroke="#ffffff" stroke-width="1.5"/>
+  
+  <!-- Ícone e Título da Aba -->
+  <rect x="22" y="13" width="14" height="12" rx="1.5" fill="#f59e0b" stroke="#d97706" stroke-width="1"/>
+  <text x="42" y="23" font-family="'Segoe UI', Arial, sans-serif" font-size="12" font-weight="600" fill="#334155">*Conceitual_1</text>
+  
+  <!-- Indicador de Software no Topo Direito -->
+  <rect x="740" y="8" width="166" height="20" rx="4" fill="#e2e8f0" />
+  <text x="823" y="22" font-family="'Segoe UI', Arial, sans-serif" font-size="11" font-weight="700" fill="#475569" text-anchor="middle">brModelo 3.2.0 • MER</text>
+
+  <!-- Área de Trabalho com Grade -->
+  <rect x="1" y="35" width="918" height="244" rx="0 0 7 7" fill="#f8fafc"/>
+  <rect x="1" y="35" width="918" height="244" rx="0 0 7 7" fill="url(#brmodeloGrid)"/>
+
+  <!-- ==================== ENTIDADE 1: peca ==================== -->
+  <g transform="translate(60, 95)">
+    <!-- Retângulo da Entidade com sombra preta sólida clássica brModelo -->
+    <rect x="0" y="0" width="150" height="65" fill="#ffffff" stroke="#000000" stroke-width="1.8" filter="url(#brShadow)"/>
+    <text x="75" y="38" font-family="Arial, 'Segoe UI', sans-serif" font-size="15" font-weight="700" fill="#000000" text-anchor="middle">peca</text>
+    <!-- Tag conceitual explicativa -->
+    <rect x="35" y="76" width="80" height="20" rx="4" fill="#fee2e2" stroke="#fecaca" stroke-width="1"/>
+    <text x="75" y="90" font-family="'Segoe UI', Arial, sans-serif" font-size="10.5" font-weight="700" fill="#991b1b" text-anchor="middle">Entidade 1</text>
+  </g>
+
+  <!-- ==================== ENTIDADE 2: categoria ==================== -->
+  <g transform="translate(270, 95)">
+    <!-- Retângulo da Entidade -->
+    <rect x="0" y="0" width="150" height="65" fill="#ffffff" stroke="#000000" stroke-width="1.8" filter="url(#brShadow)"/>
+    <text x="75" y="38" font-family="Arial, 'Segoe UI', sans-serif" font-size="15" font-weight="700" fill="#000000" text-anchor="middle">categoria</text>
+    <!-- Tag conceitual explicativa -->
+    <rect x="35" y="76" width="80" height="20" rx="4" fill="#fef3c7" stroke="#fde68a" stroke-width="1"/>
+    <text x="75" y="90" font-family="'Segoe UI', Arial, sans-serif" font-size="10.5" font-weight="700" fill="#92400e" text-anchor="middle">Entidade 2</text>
+  </g>
+
+  <!-- ==================== ENTIDADE 3: cliente ==================== -->
+  <g transform="translate(480, 95)">
+    <!-- Retângulo da Entidade -->
+    <rect x="0" y="0" width="150" height="65" fill="#ffffff" stroke="#000000" stroke-width="1.8" filter="url(#brShadow)"/>
+    <text x="75" y="38" font-family="Arial, 'Segoe UI', sans-serif" font-size="15" font-weight="700" fill="#000000" text-anchor="middle">cliente</text>
+    <!-- Tag conceitual explicativa -->
+    <rect x="35" y="76" width="80" height="20" rx="4" fill="#e0f2fe" stroke="#bae6fd" stroke-width="1"/>
+    <text x="75" y="90" font-family="'Segoe UI', Arial, sans-serif" font-size="10.5" font-weight="700" fill="#075985" text-anchor="middle">Entidade 3</text>
+  </g>
+
+  <!-- ==================== ENTIDADE 4: pedido ==================== -->
+  <g transform="translate(690, 95)">
+    <!-- Retângulo da Entidade -->
+    <rect x="0" y="0" width="150" height="65" fill="#ffffff" stroke="#000000" stroke-width="1.8" filter="url(#brShadow)"/>
+    <text x="75" y="38" font-family="Arial, 'Segoe UI', sans-serif" font-size="15" font-weight="700" fill="#000000" text-anchor="middle">pedido</text>
+    <!-- Tag conceitual explicativa -->
+    <rect x="35" y="76" width="80" height="20" rx="4" fill="#f3e8ff" stroke="#e9d5ff" stroke-width="1"/>
+    <text x="75" y="90" font-family="'Segoe UI', Arial, sans-serif" font-size="10.5" font-weight="700" fill="#6b21a8" text-anchor="middle">Entidade 4</text>
+  </g>
+
+  <!-- Rodapé informativo do diagrama -->
+  <rect x="1" y="246" width="918" height="33" rx="0 0 7 7" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="24" y="267" font-family="'Segoe UI', Arial, sans-serif" font-size="12" font-weight="600" fill="#475569">📌 Notação Gráfica Oficial: Retângulos representam Entidades no Modelo Conceitual (MER / DER)</text>
+  <text x="896" y="267" font-family="'Segoe UI', Arial, sans-serif" font-size="11.5" font-weight="500" fill="#64748b" text-anchor="end">AutoMetal Brasil S.A.</text>
+</svg>
