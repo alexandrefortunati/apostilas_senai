@@ -1,5 +1,5 @@
-<!-- Grid de 2 Cards por Linha -->
-<div class="modules-grid-2cols">
+<!-- Grid de 3 Cards por Linha -->
+<div class="modules-grid-3cols">
     <?php foreach ($modules as $id => $mod): 
         $cleanTitle = preg_replace('/^Módulo\s*\d+\s*:\s*/i', '', $mod['title']);
     ?>
@@ -12,7 +12,7 @@
         <div class="module-strip-content">
             <div class="module-strip-header-row">
                 <h3 class="module-strip-title"><?= htmlspecialchars($cleanTitle) ?></h3>
-                <svg class="module-strip-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                <svg class="module-strip-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
             </div>
             
             <p class="module-strip-summary"><?= htmlspecialchars($mod['summary']) ?></p>
@@ -27,7 +27,7 @@
 </div>
 
 <!-- Painel Compacto de Diretrizes e Recomendações -->
-<section class="compact-guidelines-box" style="margin-top: 20px;">
+<section class="compact-guidelines-box">
     <div class="compact-guidelines-header">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
         Recomendações Metodológicas e Pedagógicas • SENAI-SP

@@ -334,60 +334,26 @@
 <span class="token-keyword">WHERE</span> id_cliente = <span class="token-number">1</span>;</code></pre>
         </div>
 
-        <!-- GALERIA DAS 3 IMAGENS DO WORKBENCH -->
-        <h3 style="margin: 28px 0 12px; font-size: 16px; color: var(--text-primary); display: flex; align-items: center; gap: 8px;">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
-            Evidências Oficiais do MySQL Workbench para as 3 Etapas:
-        </h3>
-
-        <!-- IMAGEM 8.3: PASSO 1 ITENS -->
-        <div class="workbench-screenshot-card" style="border-style: solid; border-color: #bae6fd; background: #ffffff; margin-bottom: 18px;">
+        <!-- EVIDÊNCIA OFICIAL DO WORKBENCH: FIGURA 8.3 -->
+        <div class="workbench-screenshot-card" style="border-style: solid; border-color: #bae6fd; background: #ffffff; margin-top: 24px;">
             <div class="screenshot-header-row">
                 <span class="screenshot-badge" style="background: #0284c7; color: #ffffff; border-color: #0284c7;">
-                    📸 Figura 8.3: Passo 1 (itens_pedido)
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
+                    📸 Imagem Oficial do Workbench: Figura 8.3
                 </span>
-                <span class="screenshot-target-pill" style="background: #e0f2fe; color: #0369a1;">DELETE FROM itens_pedido WHERE id_pedido = 1;</span>
+                <span class="screenshot-target-pill" style="background: #e0f2fe; color: #0369a1; font-weight: 700;">Execução Linear das 3 Etapas de Exclusão De Baixo para Cima</span>
             </div>
-            <div class="zoomable-image-container" data-caption="Figura 8.3: Exclusão dos itens do pedido com sucesso (2 row(s) affected)" style="border-radius: 8px; overflow: hidden; border: 1.5px solid #cbd5e1; box-shadow: 0 4px 14px rgba(0,0,0,0.06); margin: 10px 0;">
-                <img src="public/img/delete-hierarquia-passo1-itens.png" alt="Passo 1 de exclusão hierárquica na tabela itens_pedido no Workbench" style="width: 100%; height: auto; display: block; object-fit: contain;">
-                <div class="image-zoom-overlay"><span>Ampliar</span></div>
-            </div>
-            <div style="font-size: 12px; color: #64748b;">
-                <strong>Figura 8.3:</strong> Execução do Passo 1 no MySQL Workbench, confirmando <code>2 row(s) affected</code> na tabela associativa <code>itens_pedido</code>.
-            </div>
-        </div>
 
-        <!-- IMAGEM 8.4: PASSO 2 PEDIDO -->
-        <div class="workbench-screenshot-card" style="border-style: solid; border-color: #bae6fd; background: #ffffff; margin-bottom: 18px;">
-            <div class="screenshot-header-row">
-                <span class="screenshot-badge" style="background: #0284c7; color: #ffffff; border-color: #0284c7;">
-                    📸 Figura 8.4: Passo 2 (pedido)
-                </span>
-                <span class="screenshot-target-pill" style="background: #e0f2fe; color: #0369a1;">DELETE FROM pedido WHERE id_pedido = 1;</span>
+            <div class="zoomable-image-container" data-caption="Figura 8.3: Execução linear das 3 queries de exclusão hierárquica (itens_pedido, pedido e cliente) no MySQL Workbench com semáforos verdes no Action Output" style="border-radius: 8px; overflow: hidden; border: 1.5px solid #cbd5e1; box-shadow: 0 4px 14px rgba(0,0,0,0.06); margin: 12px 0;">
+                <img src="public/img/delete-hierarquia-linear-sucesso.png" alt="Execução sequencial das 3 queries de exclusão hierárquica no MySQL Workbench" style="width: 100%; height: auto; display: block; object-fit: contain;">
+                <div class="image-zoom-overlay">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+                    <span>Ampliar Imagem</span>
+                </div>
             </div>
-            <div class="zoomable-image-container" data-caption="Figura 8.4: Exclusão do cabeçalho do pedido com sucesso (1 row(s) affected)" style="border-radius: 8px; overflow: hidden; border: 1.5px solid #cbd5e1; box-shadow: 0 4px 14px rgba(0,0,0,0.06); margin: 10px 0;">
-                <img src="public/img/delete-hierarquia-passo2-pedido.png" alt="Passo 2 de exclusão hierárquica na tabela pedido no Workbench" style="width: 100%; height: auto; display: block; object-fit: contain;">
-                <div class="image-zoom-overlay"><span>Ampliar</span></div>
-            </div>
-            <div style="font-size: 12px; color: #64748b;">
-                <strong>Figura 8.4:</strong> Execução do Passo 2 no MySQL Workbench, confirmando <code>1 row(s) affected</code> na tabela <code>pedido</code>.
-            </div>
-        </div>
 
-        <!-- IMAGEM 8.5: PASSO 3 CLIENTE -->
-        <div class="workbench-screenshot-card" style="border-style: solid; border-color: #bae6fd; background: #ffffff;">
-            <div class="screenshot-header-row">
-                <span class="screenshot-badge" style="background: #059669; color: #ffffff; border-color: #059669;">
-                    📸 Figura 8.5: Passo 3 (cliente)
-                </span>
-                <span class="screenshot-target-pill" style="background: #dcfce7; color: #166534;">DELETE FROM cliente WHERE id_cliente = 1;</span>
-            </div>
-            <div class="zoomable-image-container" data-caption="Figura 8.5: Exclusão final do cliente base com sucesso (1 row(s) affected)" style="border-radius: 8px; overflow: hidden; border: 1.5px solid #cbd5e1; box-shadow: 0 4px 14px rgba(0,0,0,0.06); margin: 10px 0;">
-                <img src="public/img/delete-hierarquia-passo3-cliente.png" alt="Passo 3 de exclusão hierárquica na tabela cliente no Workbench" style="width: 100%; height: auto; display: block; object-fit: contain;">
-                <div class="image-zoom-overlay"><span>Ampliar</span></div>
-            </div>
-            <div style="font-size: 12px; color: #64748b;">
-                <strong>Figura 8.5:</strong> Execução do Passo 3 no MySQL Workbench: sem pedidos atrelados, o cliente é apagado com semáforo verde e <code>1 row(s) affected</code>.
+            <div style="padding-top: 6px; font-size: 12px; color: #64748b;">
+                <strong>Figura 8.3:</strong> Execução sequencial e linear no MySQL Workbench: o painel <em>Action Output</em> confirma o sucesso com semáforos verdes nas três etapas consecutivas (<code>2 row(s) affected</code> em <code>itens_pedido</code>, <code>1 row(s) affected</code> em <code>pedido</code> e <code>1 row(s) affected</code> em <code>cliente</code>). <em>(Clique na imagem para ampliá-la)</em>.
             </div>
         </div>
     </div>
@@ -437,26 +403,26 @@
 
         <!-- DUAS IMAGENS DO SELECT PRÉVIO -->
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 18px;">
-            <!-- FIGURA 8.6: SELECT -->
+            <!-- FIGURA 8.4: SELECT -->
             <div class="workbench-screenshot-card" style="border-style: solid; border-color: #bae6fd; background: #ffffff;">
                 <div class="screenshot-header-row">
-                    <span class="screenshot-badge" style="background: #0284c7; color: #ffffff; font-size: 10.5px;">📸 Figura 8.6: 1. SELECT</span>
+                    <span class="screenshot-badge" style="background: #0284c7; color: #ffffff; font-size: 10.5px;">📸 Figura 8.4: 1. SELECT</span>
                 </div>
-                <div class="zoomable-image-container" data-caption="Figura 8.6: Validação visual no Result Grid antes da exclusão" style="border-radius: 6px; overflow: hidden; border: 1px solid #cbd5e1; margin: 8px 0;">
+                <div class="zoomable-image-container" data-caption="Figura 8.4: Validação visual no Result Grid antes da exclusão" style="border-radius: 6px; overflow: hidden; border: 1px solid #cbd5e1; margin: 8px 0;">
                     <img src="public/img/delete-preventivo-passo1-select.png" alt="Passo 1: SELECT prévio de validação no MySQL Workbench" style="width: 100%; height: auto; display: block; object-fit: contain;">
                     <div class="image-zoom-overlay"><span>Ampliar</span></div>
                 </div>
                 <div style="font-size: 11.5px; color: #64748b;">
-                    <strong>Passo 1:</strong> O <em>Result Grid</em> exibe a peça de ID 2 (Pastilha de Freio Dianteira).
+                    <strong>Passo 1:</strong> O <em>Result Grid</em> exibe a peça de ID 2 (Biela de Aço Forjado).
                 </div>
             </div>
 
-            <!-- FIGURA 8.7: DELETE -->
+            <!-- FIGURA 8.5: DELETE -->
             <div class="workbench-screenshot-card" style="border-style: solid; border-color: #bbf7d0; background: #ffffff;">
                 <div class="screenshot-header-row">
-                    <span class="screenshot-badge" style="background: #059669; color: #ffffff; font-size: 10.5px;">📸 Figura 8.7: 2. DELETE</span>
+                    <span class="screenshot-badge" style="background: #059669; color: #ffffff; font-size: 10.5px;">📸 Figura 8.5: 2. DELETE</span>
                 </div>
-                <div class="zoomable-image-container" data-caption="Figura 8.7: Execução segura do DELETE após confirmação visual" style="border-radius: 6px; overflow: hidden; border: 1px solid #cbd5e1; margin: 8px 0;">
+                <div class="zoomable-image-container" data-caption="Figura 8.5: Execução segura do DELETE após confirmação visual" style="border-radius: 6px; overflow: hidden; border: 1px solid #cbd5e1; margin: 8px 0;">
                     <img src="public/img/delete-preventivo-passo2-delete.png" alt="Passo 2: DELETE com status verde no MySQL Workbench" style="width: 100%; height: auto; display: block; object-fit: contain;">
                     <div class="image-zoom-overlay"><span>Ampliar</span></div>
                 </div>
