@@ -2563,9 +2563,12 @@ body.admin-theme .app-layout {
 }
 
 .sidebar-user-session-card.admin-user-card {
-    background: #ffffff;
-    border: 1px solid #e0e7ff;
-    box-shadow: 0 2px 6px rgba(67, 56, 202, 0.04);
+    background: transparent;
+    border-bottom: 1px solid #eef2ff;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    box-shadow: none;
 }
 
 .user-role-badge.role-admin {

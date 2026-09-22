@@ -55,7 +55,16 @@ class CourseData {
                     ['number' => 5, 'duration' => '45 min', 'title' => '2ª Prática: Montagem em Hardware Real & Avaliação', 'desc' => 'Montagem física em bancada no Arduino Uno real com protoboard e componentes físicos, testes elétricos, depuração e entrega da atividade prática avaliativa.']
                 ],
                 'project_name' => 'Sistema Inteligente de Iluminação Residencial com Sensor LDR',
-                'project_type' => 'Automação Residencial / Sensoriamento de Luminosidade'
+                'project_type' => 'Automação Residencial / Sensoriamento de Luminosidade',
+                'topics' => [
+                    ['id' => 'conceito-historia', 'title' => '1. Conceito & História'],
+                    ['id' => 'pilares-arquitetura', 'title' => '2. Os 4 Pilares da IoT'],
+                    ['id' => 'seguranca-iot', 'title' => '3. Segurança & Riscos'],
+                    ['id' => 'iiot-industria', 'title' => '4. IIoT vs IoT & Vertentes'],
+                    ['id' => 'eletronica-basica', 'title' => '5. Eletrônica & Lei de Ohm'],
+                    ['id' => 'laboratorio-3d', 'title' => '6. Modelos 3D Interativos'],
+                    ['id' => 'guia-aula-pratica', 'title' => '7. Atividade em Sala de Aula']
+                ]
             ],
             2 => [
                 'id' => 2,
@@ -73,7 +82,16 @@ class CourseData {
                     ['number' => 5, 'duration' => '45 min', 'title' => '2ª Prática: Montagem em Hardware Real & Avaliação', 'desc' => 'Montagem em bancada com Arduino Uno físico, sensor PIR HC-SR501, módulo relé 5V, calibração de sensibilidade/tempo e submissão da atividade avaliativa.']
                 ],
                 'project_name' => 'Sistema de Controle de Carga com Sensor de Presença PIR e Módulo Relé',
-                'project_type' => 'Automação Predial / Controle de Potência'
+                'project_type' => 'Automação Predial / Controle de Potência',
+                'topics' => [
+                    ['id' => 'mcu-vs-mpu', 'title' => '1. MCU vs MPU (Hardware)'],
+                    ['id' => 'interfaces-io', 'title' => '2. Interfaces I/O, ADC & PWM'],
+                    ['id' => 'catalogo-sensores', 'title' => '3. Catálogo de Sensores'],
+                    ['id' => 'catalogo-atuadores', 'title' => '4. Atuadores & Relés'],
+                    ['id' => 'ambientes-ides', 'title' => '5. IDEs & Simuladores'],
+                    ['id' => 'simulador-bancada', 'title' => '6. Simulador Interativo'],
+                    ['id' => 'guia-aula-pratica', 'title' => '7. Atividade em Sala de Aula']
+                ]
             ],
             3 => [
                 'id' => 3,
@@ -91,7 +109,15 @@ class CourseData {
                     ['number' => 5, 'duration' => '45 min', 'title' => '2ª Prática: Montagem em Hardware Real & Avaliação', 'desc' => 'Montagem física do nó sensor com ESP32 / Arduino + sensor de temperatura DHT11/LM35, transmissão real de telemetria e entrega da atividade prática avaliativa.']
                 ],
                 'project_name' => 'Nó de Telemetria e Monitoramento Climático Conectado à Nuvem',
-                'project_type' => 'Telemetria IoT / Conectividade MQTT & Nuvem'
+                'project_type' => 'Telemetria IoT / Conectividade MQTT & Nuvem',
+                'topics' => [
+                    ['id' => 'pilha-protocolos', 'title' => '1. Pilha de Protocolos IoT'],
+                    ['id' => 'redes-locais-lpwan', 'title' => '2. BLE, Zigbee, LoRa & NB-IoT'],
+                    ['id' => 'protocolo-mqtt', 'title' => '3. Protocolo MQTT em Detalhes'],
+                    ['id' => 'nuvem-telemetria', 'title' => '4. Plataformas em Nuvem'],
+                    ['id' => 'simulador-bancada', 'title' => '5. Simulador Interativo'],
+                    ['id' => 'guia-aula-pratica', 'title' => '6. Atividade em Sala de Aula']
+                ]
             ],
             4 => [
                 'id' => 4,
@@ -109,7 +135,14 @@ class CourseData {
                     ['number' => 5, 'duration' => '45 min', 'title' => '2ª Prática: Hardware Real Integrado ao Dashboard Web & 3D', 'desc' => 'Montagem final integrando o hardware real ao Dashboard Web completo com Three.js, visualização de dados em tempo real, comando de atuador e avaliação final.']
                 ],
                 'project_name' => 'Dashboard Web Interativo de Telemetria e Controle Remoto IoT',
-                'project_type' => 'Interface Web IoT / Visualização de Dados e Controle'
+                'project_type' => 'Interface Web IoT / Visualização de Dados e Controle',
+                'topics' => [
+                    ['id' => 'linguagens-web-iot', 'title' => '1. HTML5, CSS3 & JS IoT'],
+                    ['id' => 'bibliotecas-chart-leaflet', 'title' => '2. Chart.js, Mapas & Node-RED'],
+                    ['id' => 'controle-feedbacks', 'title' => '3. Controle Bidirecional & Filtros'],
+                    ['id' => 'simulador-bancada', 'title' => '4. Simulador Interativo'],
+                    ['id' => 'guia-aula-pratica', 'title' => '5. Atividade em Sala de Aula']
+                ]
             ]
         ];
     }

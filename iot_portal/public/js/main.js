@@ -24,23 +24,57 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
     
-    // Smooth scroll for module anchor navigation
-    document.querySelectorAll('.module-nav-btn').forEach(anchor => {
+    // Smooth scrolling & active indicator for in-page navigation buttons
+    const navButtons = document.querySelectorAll('.sidebar-subtopic-btn, .module-nav-btn');
+    navButtons.forEach(anchor => {
         anchor.addEventListener('click', function(e) {
-            const targetId = this.getAttribute('href');
-            if (targetId && targetId.startsWith('#')) {
+            const href = this.getAttribute('href');
+            if (href && href.startsWith('#')) {
                 e.preventDefault();
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    const offsetTop = targetElement.getBoundingClientRect().top + window.pageYOffset - 90;
+                const target = document.querySelector(href);
+                if (target) {
+                    navButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+
+                    const headerOffset = 80;
+                    const elementPosition = target.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                    
                     window.scrollTo({
-                        top: offsetTop,
+                        top: offsetPosition,
                         behavior: 'smooth'
                     });
                 }
             }
         });
     });
+
+    // ScrollSpy with IntersectionObserver
+    const sections = document.querySelectorAll('.content-section[id]');
+    if (sections.length > 0 && navButtons.length > 0) {
+        const observerOptions = {
+            root: null,
+            rootMargin: '-80px 0px -65% 0px',
+            threshold: 0
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.getAttribute('id');
+                    navButtons.forEach(btn => {
+                        if (btn.getAttribute('href') === `#${id}`) {
+                            btn.classList.add('active');
+                        } else {
+                            btn.classList.remove('active');
+                        }
+                    });
+                }
+            });
+        }, observerOptions);
+
+        sections.forEach(sec => observer.observe(sec));
+    }
     
     // Initialize Prototype Step Player
     const playerContainer = document.getElementById('prototype-step-player');

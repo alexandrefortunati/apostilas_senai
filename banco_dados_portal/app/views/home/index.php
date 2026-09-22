@@ -40,9 +40,9 @@
                 SGBD & Servidor
             </div>
             <ul class="compact-guidelines-list">
-                <li>MySQL Community Server 8.0 / MariaDB (XAMPP)</li>
-                <li>InnoDB Transacional (ACID) • Porta: 3306</li>
-                <li>Codificação: UTF-8 (utf8mb4_unicode_ci)</li>
+                <li>MySQL Server</li>
+                <li>XAMPP</li>
+                <li>WampServer</li>
             </ul>
         </div>
         
@@ -52,9 +52,9 @@
                 Software & Ferramentas
             </div>
             <ul class="compact-guidelines-list">
-                <li>Oracle MySQL Workbench 8.0 CE & brModelo 3.0</li>
-                <li>Visual Studio Code com extensões SQL</li>
-                <li>Prompt de Comando / CLI (mysql / mysqldump)</li>
+                <li>Oracle MySQL Workbench</li>
+                <li>brModelo 3.0</li>
+                <li>PHPMyAdmin</li>
             </ul>
         </div>
         

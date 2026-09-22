@@ -36,56 +36,140 @@ if ($isAdminMode) {
         </a>
     </div>
 
-    <!-- CARD DE PERFIL / SESSÃO DO USUÁRIO -->
+    <!-- SESSÃO DO USUÁRIO (RETÂNGULO COM DEGRADÊ NEUTRO E MINIMALISTA) -->
+    <style>
+        .sidebar-user-session-card {
+            padding: 6px 12px 10px;
+            background: transparent;
+            border-bottom: 1px solid #f1f5f9;
+        }
+        .sidebar-user-session-card.admin-user-card {
+            border-bottom: 1px solid #eef2ff;
+        }
+        .session-gradient-box {
+            background: linear-gradient(145deg, #ffffff 0%, #f8fafc 55%, #f1f5f9 100%);
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 9px 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 7px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+            transition: all 0.2s ease;
+        }
+        .session-user-text {
+            font-size: 10px;
+            color: #64748b;
+            text-align: center;
+            line-height: 1.3;
+            max-width: 100%;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .session-caption {
+            color: #64748b;
+            font-weight: 500;
+        }
+        .session-user-name {
+            color: #0f172a;
+            font-weight: 700;
+        }
+        .session-portal-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+            padding: 2.5px 9px;
+            border-radius: 9999px;
+            font-size: 9px;
+            font-weight: 600;
+            color: #be123c;
+            background: #fff1f2;
+            border: 1px solid #fecdd3;
+            text-decoration: none;
+            transition: all 0.15s ease;
+        }
+        .session-portal-btn:hover {
+            color: #9f1239;
+            background: #ffe4e6;
+            border-color: #fda4af;
+            box-shadow: 0 1px 3px rgba(225, 29, 72, 0.08);
+            transform: translateY(-1px);
+        }
+        .session-portal-btn svg {
+            color: #e11d48;
+            transition: transform 0.15s ease, color 0.15s ease;
+        }
+        .session-portal-btn:hover svg {
+            color: #9f1239;
+            transform: translateX(-1.5px);
+        }
+        .user-session-guest {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+            text-align: center;
+            width: 100%;
+        }
+        .guest-text {
+            font-size: 11px;
+            color: #64748b;
+        }
+        .guest-login-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            background: #db2777;
+            color: #ffffff;
+            padding: 5px 12px;
+            border-radius: 9999px;
+            font-size: 11px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.18s ease;
+            box-shadow: 0 1px 2px rgba(219, 39, 119, 0.2);
+        }
+        .guest-login-btn:hover {
+            background: #be185d;
+            transform: translateY(-1px);
+            box-shadow: 0 2px 4px rgba(219, 39, 119, 0.3);
+        }
+    </style>
+
     <div class="sidebar-user-session-card <?= $isAdminMode ? 'admin-user-card' : '' ?>">
         <?php if (isset($_SESSION['usuario'])): 
             $user = $_SESSION['usuario'];
             $isAdmin = ($user['nivel'] === 'admin');
+            $cleanName = trim(preg_replace('/\s*(•|-|–|—)?\s*SENAI.*$/i', '', $user['nome']));
+            if (empty($cleanName)) {
+                $cleanName = $user['nome'];
+            }
         ?>
-            <div style="display: flex; flex-direction: column; align-items: center; gap: 8px; margin-bottom: 8px; text-align: center;">
-                <div style="width: 48px; height: 48px; border-radius: 12px; background: linear-gradient(135deg, <?= $isAdmin ? '#4f46e5, #3b82f6' : '#db2777, #f43f5e' ?>); color: white; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 18px; box-shadow: 0 4px 10px rgba(0,0,0,0.15); margin-bottom: 4px;">
-                    <?php 
-                        $nameParts = explode(' ', trim($user['nome']));
-                        echo strtoupper(substr($nameParts[0], 0, 1) . (isset($nameParts[1]) ? substr($nameParts[1], 0, 1) : ''));
-                    ?>
+            <div class="session-gradient-box">
+                <div class="session-user-text" title="Logado como: <?= htmlspecialchars($cleanName) ?>">
+                    <span class="session-caption">Logado como:</span>
+                    <span class="session-user-name"><?= htmlspecialchars($cleanName) ?></span>
                 </div>
-                <div style="display: flex; flex-direction: column; align-items: center;">
-                    <div class="user-profile-name" style="font-size: 14px; font-weight: 700; color: #0f172a; line-height: 1.2;">
-                        <?= htmlspecialchars($user['nome']) ?>
-                    </div>
-                    <div class="user-profile-sub" style="font-size: 11px; color: #64748b; margin-top: 3px; line-height: 1.2;">
-                        <?= htmlspecialchars($user['turma'] ?: 'SENAI-SP') ?>
-                    </div>
-                </div>
-                <span class="user-role-badge <?= $isAdmin ? 'role-admin' : 'role-student' ?>" style="display: inline-flex; align-items: center; gap: 5px; font-size: 10px; padding: 4px 10px; border-radius: 8px; border: 1px solid <?= $isAdmin ? '#c7d2fe' : '#e2e8f0' ?>; background: <?= $isAdmin ? '#eef2ff' : '#f8fafc' ?>; color: <?= $isAdmin ? '#4338ca' : '#475569' ?>; letter-spacing: 0.3px; margin-top: 2px;">
-                    <?php if($isAdmin): ?>
-                        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-                        PROFESSOR / ADMIN
-                    <?php else: ?>
-                        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-                        ALUNO ATIVO
-                    <?php endif; ?>
-                </span>
+
+                <a href="../index.php" class="session-portal-btn" title="Voltar ao Portal Geral">
+                    <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                    <span>Portal Geral</span>
+                </a>
             </div>
 
-            <?php if (!$isAdminMode): ?>
-                <div style="display: flex; justify-content: center; margin-top: 8px; padding-top: 12px; border-top: 1px solid #f1f5f9;">
-                    <a href="../index.php" style="display: inline-flex; align-items: center; justify-content: center; gap: 6px; background: #ffffff; border: 1px solid #e2e8f0; color: #475569; padding: 6px 14px; border-radius: 20px; font-size: 11px; font-weight: 600; text-decoration: none; transition: all 0.2s;">
-                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
-                        Portal Geral
+        <?php else: ?>
+            <div class="session-gradient-box">
+                <div class="user-session-guest">
+                    <div class="guest-text">Faça login para registrar suas respostas</div>
+                    <a href="../index.php" class="guest-login-btn">
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path><polyline points="10 17 15 12 10 7"></polyline><line x1="15" y1="12" x2="3" y2="12"></line></svg>
+                        <span>Entrar / Cadastrar-se</span>
                     </a>
                 </div>
-            <?php endif; ?>
-
-        <?php else: ?>
-            <div style="text-align: center;">
-                <div style="font-size: 11px; color: #64748b; margin-bottom: 6px;">
-                    Faça login para registrar suas respostas
-                </div>
-                <a href="../index.php" style="display: flex; align-items: center; justify-content: center; gap: 6px; background: #db2777; color: #ffffff; padding: 7px 10px; border-radius: 6px; font-size: 11.5px; font-weight: 700; text-decoration: none;">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path><polyline points="10 17 15 12 10 7"></polyline><line x1="15" y1="12" x2="3" y2="12"></line></svg>
-                    Entrar / Cadastrar-se
-                </a>
             </div>
         <?php endif; ?>
     </div>

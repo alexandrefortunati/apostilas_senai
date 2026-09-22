@@ -1,13 +1,4 @@
-<!-- Faixa Horizontal Azul de Largura Total (Preenche todo o horizonte, colada ao topo) -->
-<div class="full-bleed-banner">
-    <div class="full-bleed-banner-inner">
-        <p>
-            Integração do mundo físico ao universo digital através de sensores, atuadores e conectividade. Abrange eletrônica básica, microcontroladores (<strong>Arduino, ESP32</strong>), protocolos em nuvem (<strong>MQTT/HTTP</strong>) e dashboards web interativos para <strong>automação residencial e IIoT</strong>.
-        </p>
-    </div>
-</div>
-
-<!-- Grid de 2 Cards por Linha -->
+<!-- Grid de Cards de Módulos (Estilo Padronizado SENAI) -->
 <div class="modules-grid-2cols">
     <?php foreach ($modules as $id => $mod): 
         $cleanTitle = preg_replace('/^Módulo\s*\d+\s*:\s*/i', '', $mod['title']);
@@ -21,7 +12,7 @@
         <div class="module-strip-content">
             <div class="module-strip-header-row">
                 <h3 class="module-strip-title"><?= htmlspecialchars($cleanTitle) ?></h3>
-                <svg class="module-strip-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                <svg class="module-strip-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
             </div>
             
             <p class="module-strip-summary"><?= htmlspecialchars($mod['summary']) ?></p>
