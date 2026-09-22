@@ -14,8 +14,8 @@
     <!-- CSS Design System -->
     <link rel="stylesheet" href="public/css/main.css">
 </head>
-<body>
-<div class="app-layout">
+<body class="<?= (isset($page) && $page === 'admin') ? 'admin-theme' : '' ?>">
+<div class="app-layout <?= (isset($page) && $page === 'admin') ? 'is-admin-layout' : '' ?>">
     <!-- App Left Sidebar (Estilo APM / SENAI-SP) -->
     <?php require_once __DIR__ . '/sidebar.php'; ?>
 

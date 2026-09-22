@@ -5,6 +5,26 @@
  * Layout moderno em cores neutras e fundo claro.
  */
 
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
+// 1. Ação de Logout
+if (isset($_GET['action']) && $_GET['action'] === 'logout') {
+    unset($_SESSION['usuario']);
+    session_destroy();
+    header('Location: index.php');
+    exit;
+}
+
+// 2. Guarda de Autenticação: O login aparece antes desta página
+if (!isset($_SESSION['usuario']) || $_SESSION['usuario']['status'] !== 'ativo' || (isset($_GET['action']) && $_GET['action'] === 'redefinir')) {
+    require_once __DIR__ . '/login.php';
+    exit;
+}
+
+$currentUser = $_SESSION['usuario'];
+
 $disciplinas = [
     // MÓDULO BÁSICO (300 Horas)
     [
@@ -77,7 +97,7 @@ $disciplinas = [
         'descricao' => 'Modelagem conceitual (MER), lógica e física, normalização de dados (1FN, 2FN, 3FN), SQL DDL/DML, JOINs, Procedures, Triggers e Terminal Interativo.',
         'capacidades' => 'Criar estrutura para armazenamento, manipulação e persistência de dados (Páginas 41-43 do Plano de Curso).',
         'link' => 'banco_dados_portal/index.php',
-        'destaque' => true
+        'destaque' => false
     ],
     [
         'id' => 'linguagem-marcacao',
@@ -142,12 +162,12 @@ $disciplinas = [
         'nome' => 'Internet das Coisas (IoT)',
         'horas' => 75,
         'icone' => 'cpu',
-        'status' => 'Material Completo & 3D',
+        'status' => 'Material Completo & Interativo',
         'status_type' => 'active',
-        'descricao' => 'Integração de sistemas com sensores, atuadores, protocolos MQTT/HTTP, plataformas na nuvem, simulações Tinkercad e montagem com 3D Three.js.',
+        'descricao' => 'Integração de sistemas com sensores, atuadores, protocolos MQTT/HTTP, plataformas na nuvem, simulações Tinkercad e montagens práticas de circuitos.',
         'capacidades' => 'Implementar soluções com tecnologias de IoT para integração de sistemas e interfaces visuais (Páginas 58-59 do Plano de Curso).',
         'link' => 'iot_portal/index.php',
-        'destaque' => true
+        'destaque' => false
     ],
 
     // MÓDULO ESPECÍFICO II (180 Horas)
@@ -529,23 +549,8 @@ $disciplinas = [
         }
 
         .discipline-card.featured {
-            border: 2px solid #bfdbfe;
-            background: linear-gradient(180deg, #ffffff 0%, #f8faff 100%);
-            box-shadow: var(--shadow-md);
-        }
-
-        .discipline-card.featured::before {
-            content: 'DESTAQUE • PORTAL 3D';
-            position: absolute;
-            top: -11px;
-            right: 24px;
-            background: var(--senai-red);
-            color: #ffffff;
-            font-size: 10px;
-            font-weight: 800;
-            padding: 2px 10px;
-            border-radius: 9999px;
-            letter-spacing: 0.5px;
+            border: 1px solid var(--border-color);
+            background: var(--bg-card);
         }
 
         .card-top {
@@ -584,10 +589,6 @@ $disciplinas = [
             color: var(--text-main);
             line-height: 1.35;
             margin-bottom: 10px;
-        }
-
-        .discipline-card.featured .discipline-title {
-            color: var(--primary);
         }
 
         .discipline-desc {
@@ -762,9 +763,25 @@ $disciplinas = [
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
                     1.200 Horas Totais
                 </div>
-                <div class="stat-pill" style="color: var(--accent-emerald); border-color: #a7f3d0; background: #ecfdf5;">
-                    <svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="4"/></svg>
-                    Matriz Oficial 2023
+
+                <!-- Perfil do Usuário Autenticado -->
+                <div style="display: flex; align-items: center; gap: 8px; background: #ffffff; border: 1px solid #cbd5e1; padding: 4px 12px 4px 8px; border-radius: 9999px; box-shadow: 0 1px 2px rgba(0,0,0,0.03);">
+                    <span style="font-size: 10px; font-weight: 800; padding: 3px 8px; border-radius: 12px; <?= ($currentUser['nivel'] === 'admin') ? 'background: #fdf2f8; color: #db2777; border: 1px solid #fbcfe8;' : 'background: #ecfdf5; color: #059669; border: 1px solid #a7f3d0;' ?>">
+                        <?= ($currentUser['nivel'] === 'admin') ? 'PROFESSOR / ADMIN' : 'ALUNO' ?>
+                    </span>
+                    <span style="font-size: 12px; font-weight: 700; color: #0f172a;">
+                        <?= htmlspecialchars($currentUser['nome']) ?>
+                    </span>
+
+                    <?php if ($currentUser['nivel'] === 'admin'): ?>
+                        <a href="banco_dados_portal/index.php?page=admin" style="font-size: 11px; font-weight: 700; color: #0284c7; text-decoration: none; padding: 2px 6px; border-radius: 4px; background: #f0f9ff;" title="Painel Docente">
+                            🎓 Painel
+                        </a>
+                    <?php endif; ?>
+
+                    <a href="index.php?action=logout" style="font-size: 11px; font-weight: 700; color: #dc2626; text-decoration: none; padding: 2px 6px; border-radius: 4px; background: #fef2f2;" title="Encerrar Sessão">
+                        Sair
+                    </a>
                 </div>
             </div>
         </div>
@@ -780,7 +797,7 @@ $disciplinas = [
                 </div>
                 <h2 class="hero-title">Matriz Curricular e Ambientes de Aprendizagem</h2>
                 <p class="hero-lead">
-                    Navegue por todas as unidades curriculares do curso. Acesse conteúdos didáticos oficiais, roteiros práticos orientados, simulações virtuais no Autodesk Tinkercad e montagens físicas com esquemas tridimensionais em bancada.
+                    Navegue por todas as unidades curriculares do curso. Acesse conteúdos didáticos oficiais, roteiros práticos orientados, simulações virtuais e montagens práticas de projetos em bancada.
                 </p>
             </div>
             
@@ -839,9 +856,9 @@ $disciplinas = [
                 </div>
                 
                 <div class="card-actions">
-                    <?php if ($d['destaque']): ?>
+                    <?php if (!empty($d['link']) && $d['link'] !== '#'): ?>
                         <a href="<?= $d['link'] ?>" class="btn-card-action primary">
-                            Acessar Disciplina & Módulos 3D &rarr;
+                            Acessar Disciplina &rarr;
                         </a>
                     <?php else: ?>
                         <button class="btn-card-action secondary btn-open-syllabus" data-title="<?= htmlspecialchars($d['nome']) ?>" data-hours="<?= $d['horas'] ?> Horas" data-type="<?= htmlspecialchars($d['modulo_tipo']) ?>" data-desc="<?= htmlspecialchars($d['descricao']) ?>" data-cap="<?= htmlspecialchars($d['capacidades']) ?>">

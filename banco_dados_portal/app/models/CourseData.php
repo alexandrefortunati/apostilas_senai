@@ -266,6 +266,34 @@ class CourseData {
                     ['id' => 'comparativo-delete-truncate-drop', 'title' => '6. DELETE vs TRUNCATE vs DROP'],
                     ['id' => 'atividade-pratica-delete', 'title' => '7. Atividade Prática de Fixação']
                 ]
+            ],
+            9 => [
+                'id' => 9,
+                'title' => 'Módulo 9: Projeto Integrador – CRUD Completo de E-Commerce de Roupas',
+                'senai_chapter' => 'Capítulo 9: Projeto Final – Desenvolvimento de um E-Commerce Relacional com Operações CRUD',
+                'plano_curso_item' => 'Item 14: Projeto Prático Integrador • Sistema CRUD de E-Commerce de Roupas (Modelagem Relacional, DDL, DML INSERT/SELECT/UPDATE/DELETE, Integridade Referencial e Validação no MySQL Workbench)',
+                'tech_capacity' => '1. Modelar bancos relacionais / 2. Utilizar o MySQL Workbench / 7. Executar comandos DDL e DML / 10. Implementar operações CRUD completas / 11. Garantir a integridade referencial',
+                'hours_total' => '18h 45min',
+                'summary' => 'Tutorial prático e projeto integrador final: construa do zero o banco de dados e execute o ciclo CRUD completo para o e-commerce de roupas ("loja_roupas"), aplicando modelagem relacional, criação de tabelas DDL no Workbench com chaves estrangeiras e tipos ENUM, povoamento com INSERT e fotos de catálogo, vitrine e filtros com SELECT, reajustes de preço com UPDATE, e cancelamentos seguros com DELETE respeitando as regras de integridade do documento de modelagem.',
+                'lessons' => [
+                    ['number' => 1, 'duration' => '45 min', 'title' => 'Regras de Negócio & Modelagem Relacional', 'desc' => 'Entidades, atributos e relacionamento 1:N entre categorias, usuários e produtos com tamanhos ENUM.'],
+                    ['number' => 2, 'duration' => '45 min', 'title' => 'Implementação Física DDL no MySQL Workbench', 'desc' => 'Criação do banco loja_roupas e script DDL com constraints, chaves primárias e estrangeiras.'],
+                    ['number' => 3, 'duration' => '45 min', 'title' => 'Povoamento DML (INSERT) e Consultas DQL (SELECT)', 'desc' => 'Carga inicial do catálogo de roupas com URLs de fotos e consultas com INNER JOIN e filtros de tamanho.'],
+                    ['number' => 4, 'duration' => '45 min', 'title' => 'Gestão de Estoque (UPDATE) e Exclusão Segura (DELETE)', 'desc' => 'Reajustes de preços e estoque, descarte seguro de categorias vazias e bloqueio de FK (Erro 1451).'],
+                    ['number' => 5, 'duration' => '45 min', 'title' => 'Simulação Web Interativa e Entrega do Projeto Final', 'desc' => 'Operações CRUD em tempo real com vitrine de fotos e submissão dos scripts validados no Workbench.']
+                ],
+                'project_name' => 'Sistema CRUD Completo do E-Commerce loja_roupas',
+                'project_type' => 'Projeto Prático Integrador / MySQL Workbench',
+                'topics' => [
+                    ['id' => 'intro-ecommerce-regras', 'title' => '1. Regras de Negócio da Loja'],
+                    ['id' => 'modelagem-der-ecommerce', 'title' => '2. Modelagem Relacional (DER)'],
+                    ['id' => 'ddl-criacao-tabelas-workbench', 'title' => '3. DDL & Carga Inicial (INSERT)'],
+                    ['id' => 'dql-select-vitrine-relatorios', 'title' => '4. Vitrine & Relatórios (SELECT)'],
+                    ['id' => 'dml-update-gestao-pedidos', 'title' => '5. Gestão de Estoque & Status (UPDATE)'],
+                    ['id' => 'dml-delete-cancelamento-seguro', 'title' => '6. Cancelamento Seguro (DELETE)'],
+                    ['id' => 'simulador-crud-interativo', 'title' => '7. Simulador CRUD da Loja'],
+                    ['id' => 'desafio-projeto-final', 'title' => '8. Desafio de Fixação & Entrega']
+                ]
             ]
         ];
     }
